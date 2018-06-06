@@ -16,6 +16,15 @@
   </group>
 
   <!-- BEGIN ARCHETYPE SKIP -->
+    <group id="Manager" type="role">
+    <inherits>
+      <group-ref>ReadMasterData</group-ref>
+    </inherits>
+    <permissions>
+      <!-- offermanagement -->
+      <permission id="FindSuppliers"/>
+    </permissions>
+  </group>
   <group id="Waiter" type="role">
     <inherits>
       <group-ref>Barkeeper</group-ref>

@@ -34,6 +34,8 @@ import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductFilter;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSearchCriteriaTo;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.ProductSortBy;
 import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SideDishEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialEto;
+import io.oasp.gastronomy.restaurant.offermanagement.logic.api.to.SpecialSearchCriteriaTo;
 import io.oasp.gastronomy.restaurant.offermanagement.service.impl.rest.OffermanagementRestServiceImpl;
 import io.oasp.module.jpa.common.api.to.PaginatedListTo;
 
@@ -243,7 +245,7 @@ public interface OffermanagementRestService extends RestService {
   public void updateProductPicture(@PathParam("id") long productId,
       @Multipart(value = "binaryObjectEto", type = MediaType.APPLICATION_JSON) BinaryObjectEto binaryObjectEto,
       @Multipart(value = "blob", type = MediaType.APPLICATION_OCTET_STREAM) InputStream picture)
-          throws SerialException, SQLException, IOException;
+      throws SerialException, SQLException, IOException;
 
   @SuppressWarnings("javadoc")
   @Produces("multipart/mixed")
@@ -282,4 +284,35 @@ public interface OffermanagementRestService extends RestService {
   @Path("/product/search")
   @POST
   public PaginatedListTo<ProductEto> findProductEtosByPost(ProductSearchCriteriaTo searchCriteriaTo);
+
+  /**
+   *
+   *
+   * @param SpecialSearchCriteriaTo the pagination and search criteria to be used for finding special offers.
+   * @return the {@link PaginatedListTo list} of matching {@link SpecialEto}s.
+   */
+  @Path("/special/search")
+  @GET
+  public List<SpecialEto> findActiveSpecials(SpecialSearchCriteriaTo searchCriteriaTo);
+
+  /**
+   *
+   *
+   * @param SpecialEto the pagination and search criteria to be used for finding special offers.
+   * @return the {@link SpecialEto} of matching {@link SpecialEto}s.
+   */
+  @Path("/special/add")
+  @POST
+  public SpecialEto addSpecialOffer(SpecialEto specialEto);
+
+  /**
+   *
+   *
+   * @param SpecialEto the pagination and search criteria to be used for finding special offers.
+   * @return the {@link SpecialEto} of matching {@link SpecialEto}s.
+   */
+  @Path("/special/remove/{id}")
+  @DELETE
+  public void removeSpecialOffer(@PathParam("id") Long id);
+
 }

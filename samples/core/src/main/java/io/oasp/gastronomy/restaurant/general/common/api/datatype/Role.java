@@ -14,6 +14,11 @@ public enum Role implements Principal {
 
   // BEGIN ARCHETYPE SKIP
   /**
+   * AccessControlGroup of a manager who manages the overall. He prepares the menus and side-dishes and can mark
+   * order-positions as prepared.
+   */
+  MANAGER("Manager"),
+  /**
    * AccessControlGroup of a cook who works in the kitchen and can see the orders with their positions. He prepares the
    * menus and side-dishes and can mark order-positions as prepared.
    */
