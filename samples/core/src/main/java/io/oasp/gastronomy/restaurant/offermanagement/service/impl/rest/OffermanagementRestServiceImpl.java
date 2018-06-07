@@ -243,4 +243,11 @@ public class OffermanagementRestServiceImpl implements OffermanagementRestServic
     this.offermanagement.deleteSpecial(id);
   }
 
+  @Override
+  public SpecialEto findSpecial(long id) {
+
+    return this.offermanagement.findSpecial(id);
+
+  }
+
 }

@@ -12,6 +12,7 @@ public interface SpecialDao extends ApplicationRevisionedDao<SpecialEntity>, Mas
 
   /**
    * Find active special offers for given date of checking.
+   * 
    * @param criteria with filled date of checking
    * @return all found active special offers
    */
@@ -19,9 +20,12 @@ public interface SpecialDao extends ApplicationRevisionedDao<SpecialEntity>, Mas
 
   /**
    * Find active special offer for given date of checking and given offer number with best (smallest) price.
+   * 
    * @param criteria with filled date of checking, offer number
    * @return best found special price
    */
   Money findBestActiveSpecial(SpecialSearchCriteriaTo criteria);
+
+  SpecialEntity findSpecialById(Long id);
 
 }

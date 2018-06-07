@@ -292,7 +292,7 @@ public interface OffermanagementRestService extends RestService {
    * @return the {@link PaginatedListTo list} of matching {@link SpecialEto}s.
    */
   @Path("/special/search")
-  @GET
+  @POST
   public List<SpecialEto> findActiveSpecials(SpecialSearchCriteriaTo searchCriteriaTo);
 
   /**
@@ -315,4 +315,7 @@ public interface OffermanagementRestService extends RestService {
   @DELETE
   public void removeSpecialOffer(@PathParam("id") Long id);
 
+  @GET
+  @Path("/special/{id}")
+  SpecialEto findSpecial(@PathParam("id") long id);
 }
